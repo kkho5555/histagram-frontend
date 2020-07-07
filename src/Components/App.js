@@ -6,5 +6,7 @@ import Theme from "../Styles/Theme";
 export default () => (
   <ThemeProvider theme={Theme}>
     <GlobalStyles />
+    안녕하세요?
+    <div>ddsf</div>
   </ThemeProvider>
 );
