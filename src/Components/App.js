@@ -1,15 +1,23 @@
 import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "../Styles/GlobalStyles";
 import Theme from "../Styles/Theme";
 import AppRouter from "./Router";
+import Footer from "./Footer";
 
 const QUERY = gql`
   {
     isLoggedIn @client
   }
+`;
+
+const Wrapper = styled.div`
+  margin: 30px auto 0;
+  max-width: 935px;
+  padding-bottom: 44px;
+  width: 100%;
 `;
 export default () => {
   const {
@@ -17,10 +25,11 @@ export default () => {
   } = useQuery(QUERY);
   return (
     <ThemeProvider theme={Theme}>
-      <>
+      <Wrapper>
         <GlobalStyles />
         <AppRouter isLoggedIn={isLoggedIn}></AppRouter>
-      </>
+        <Footer />
+      </Wrapper>
     </ThemeProvider>
   );
 };
