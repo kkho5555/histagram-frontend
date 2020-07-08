@@ -51,18 +51,18 @@ export default ({
   firstName,
   lastName,
   email,
-  onLogin,
+  onSubmit,
 }) => {
   return (
     <Wrapper>
       <Form>
         {action === "logIn" ? (
-          <form onSubmit={onLogin}>
+          <form onSubmit={onSubmit}>
             <Input placeholder={"이메일 주소"} {...email} type="email" />
             <Button text={"로그인"} />
           </form>
         ) : (
-          <form onSubmit={onLogin}>
+          <form onSubmit={onSubmit}>
             <Input placeholder={"이름"} {...firstName} />
             <Input placeholder={"성"} {...lastName} />
             <Input placeholder={"이메일 주소"} {...email} type="email" />
