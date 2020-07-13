@@ -65,7 +65,7 @@ export default ({
         )}{" "}
         {action === "confirm" && (
           <form onSubmit={onSubmit}>
-            <Input placeholder={"키값"} {...secret} />
+            <Input placeholder={"키값을 붙여넣으세요."} {...secret} />
             <Button text={"확인"} />
           </form>
         )}{" "}
@@ -79,19 +79,21 @@ export default ({
           </form>
         )}{" "}
       </Form>
-      <StateChanger>
-        {action === "logIn" ? (
-          <>
-            계정이 없으신가요?{" "}
-            <Link onClick={() => setAction("signUp")}>가입하기</Link>
-          </>
-        ) : (
-          <>
-            계정이 있으신가요?{" "}
-            <Link onClick={() => setAction("logIn")}>로그인</Link>
-          </>
-        )}
-      </StateChanger>
+      {action !== "confirm" && (
+        <StateChanger>
+          {action === "logIn" ? (
+            <>
+              계정이 없으신가요?{" "}
+              <Link onClick={() => setAction("signUp")}>가입하기</Link>
+            </>
+          ) : (
+            <>
+              계정이 있으신가요?{" "}
+              <Link onClick={() => setAction("logIn")}>로그인</Link>
+            </>
+          )}
+        </StateChanger>
+      )}
     </Wrapper>
   );
 };
