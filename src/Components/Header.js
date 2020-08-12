@@ -102,7 +102,7 @@ export default withRouter(({ history }) => {
               <User />
             </HeaderLink>
           ) : (
-            <HeaderLink to={data.me.username}>
+            <HeaderLink to={data}>
               <User />
             </HeaderLink>
           )}
